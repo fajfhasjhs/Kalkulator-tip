@@ -163,7 +163,21 @@ fun EditNumberField(
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal)
     )
 }
-
+@Composable
+fun EditTipField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier
+){
+    TextField(
+        value = value,
+        onValueChange = onValueChange,
+        label = { Text(stringResource(R.string.tip_percentage)) },
+        singleLine = true,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        modifier = modifier.fillMaxWidth()
+    )
+}
 
 private fun calculateTip(amount: Double, tipPercent: Double): String {
     if (amount > 0 && tipPercent > 0) {
